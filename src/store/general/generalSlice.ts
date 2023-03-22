@@ -1,11 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GeneralState, NewsDisplayStyle } from './generalTypes';
+import { GeneralState, Languages, NewsDisplayStyle } from './generalTypes';
 
 const initialState: GeneralState = {
   newsDisplayStyle: NewsDisplayStyle.list,
-  language: 'pl',
+  language: Languages.PL,
 };
 
+/**
+ * General slice. Handles general app data in store.
+ */
 export const generalSlice = createSlice({
   name: 'general',
   initialState,
