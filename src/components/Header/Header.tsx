@@ -17,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <div className="navbar bg-neutral">
+    <header className="navbar bg-neutral">
       <div className="navbar-start">
         <MobileMenu displayStyle={displayStyle} changeDisplayStyle={changeDisplayStyle} />
         <a href="/">
@@ -35,7 +35,7 @@ const Header = () => {
       </div>
 
       <Popup />
-    </div>
+    </header>
   );
 };
 
