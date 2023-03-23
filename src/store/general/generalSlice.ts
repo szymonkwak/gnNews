@@ -16,9 +16,13 @@ export const generalSlice = createSlice({
     setDisplayStyle: (state, action: PayloadAction<NewsDisplay>) => {
       state.newsDisplayStyle = action.payload;
     },
+
+    setLanguage: (state, action: PayloadAction<Languages>) => {
+      state.language = action.payload;
+    },
   },
 });
 
-export const { setDisplayStyle } = generalSlice.actions;
+export const { setDisplayStyle, setLanguage } = generalSlice.actions;
 
 export default generalSlice.reducer;

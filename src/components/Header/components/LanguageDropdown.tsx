@@ -1,10 +1,16 @@
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from '../../../hooks';
+import { setLanguage } from '../../../store/general/generalSlice';
 import { Languages } from '../../../store/general/generalTypes';
 
 const LanguageDropdown = () => {
   const { t, i18n } = useTranslation();
+  const dispatch = useDispatch();
 
-  const handleLanguageChange = (lng: Languages) => i18n.changeLanguage(lng);
+  const handleLanguageChange = (lng: Languages) => {
+    i18n.changeLanguage(lng);
+    dispatch(setLanguage(lng));
+  };
 
   return (
     <div className="dropdown dropdown-bottom dropdown-end">

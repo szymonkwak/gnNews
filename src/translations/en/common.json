@@ -2,5 +2,13 @@
   "Język": "Language",
   
   "Wyświetlanie: Kafelki": "Show: Grid",
-  "Wyświetlanie: Lista": "Show: List"
+  "Wyświetlanie: Lista": "Show: List",
+
+  "Tytuł artykułu": "Article title",
+  "Źródło": "Source",
+  "Data publikacji": "Publish date",
+
+  "Wróć": "Go back",
+  "Nic tu nie ma": "There's nothing here"
+
 }

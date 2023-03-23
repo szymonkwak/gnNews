@@ -3,13 +3,17 @@ import { initReactI18next } from 'react-i18next';
 
 import plCommon from './translations/pl/common.json';
 import enCommon from './translations/en/common.json';
+import plCountries from './translations/pl/countries.json';
+import enCountries from './translations/en/countries.json';
 
 const resources = {
   pl: {
     translation: plCommon,
+    countries: plCountries,
   },
   en: {
     translation: enCommon,
+    countries: enCountries,
   },
 };
 
