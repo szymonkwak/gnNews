@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { GeneralState, Languages, NewsDisplayStyle } from './generalTypes';
+import { GeneralState, Languages, NewsDisplay } from './generalTypes';
 
 const initialState: GeneralState = {
-  newsDisplayStyle: NewsDisplayStyle.list,
+  newsDisplayStyle: NewsDisplay.list,
   language: Languages.PL,
 };
 
@@ -13,7 +13,7 @@ export const generalSlice = createSlice({
   name: 'general',
   initialState,
   reducers: {
-    setDisplayStyle: (state, action: PayloadAction<NewsDisplayStyle>) => {
+    setDisplayStyle: (state, action: PayloadAction<NewsDisplay>) => {
       state.newsDisplayStyle = action.payload;
     },
   },

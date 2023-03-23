@@ -1,9 +1,9 @@
 export interface GeneralState {
-  newsDisplayStyle: NewsDisplayStyle;
+  newsDisplayStyle: NewsDisplay;
   language: string;
 }
 
-export enum NewsDisplayStyle {
+export enum NewsDisplay {
   list = 'list',
   grid = 'grid',
 }
