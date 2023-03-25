@@ -12,6 +12,7 @@ import NewsList from './NewsList';
 
 const MainContent = () => {
   const displayStyle = useSelector((state) => state.general.newsDisplayStyle);
+  const lng = useSelector((state) => state.general.language);
 
   const { countryId } = useParams();
   const dispatch = useDispatch();
@@ -26,8 +27,8 @@ const MainContent = () => {
 
   if (countryId && !Object.keys(country).includes(countryId)) return <ErrorPage />;
 
-  if (data && displayStyle === NewsDisplay.list) return <NewsList articles={data.articles} />;
-  if (data && displayStyle === NewsDisplay.grid) return <NewsGrid articles={data.articles} />;
+  if (data && displayStyle === NewsDisplay.list) return <NewsList articles={data.articles} lng={lng} />;
+  if (data && displayStyle === NewsDisplay.grid) return <NewsGrid articles={data.articles} lng={lng} />;
 
   return null;
 };

@@ -1,17 +1,16 @@
 import { useTranslation } from 'react-i18next';
 import { Article } from '../../api/types';
-import { useSelector } from '../../hooks';
+import { Languages } from '../../store/general/generalTypes';
 
 interface NewsListProps {
   articles: Article[];
+  lng: Languages;
 }
 
 const NewsList = (props: NewsListProps) => {
-  const { articles } = props;
+  const { articles, lng } = props;
 
   const { t } = useTranslation();
-
-  const lng = useSelector((state) => state.general.language);
 
   return (
     <div className="overflow-x-auto">

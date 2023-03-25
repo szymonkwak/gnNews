@@ -1,6 +1,6 @@
 export interface GeneralState {
   newsDisplayStyle: NewsDisplay;
-  language: string;
+  language: Languages;
   displayedArticles: number;
 }
 

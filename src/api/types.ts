@@ -7,6 +7,7 @@ interface Article {
   title: string;
   url: string;
   name: string;
+  urlToImage: string;
 }
 
 interface ResponseData {
