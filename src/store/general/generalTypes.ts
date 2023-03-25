@@ -1,6 +1,7 @@
 export interface GeneralState {
   newsDisplayStyle: NewsDisplay;
   language: string;
+  displayedArticles: number;
 }
 
 export enum NewsDisplay {

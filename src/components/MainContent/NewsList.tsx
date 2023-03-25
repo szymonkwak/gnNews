@@ -27,7 +27,7 @@ const NewsList = (props: NewsListProps) => {
         <tbody>
           {articles.map((article, idx) => (
             <tr key={article.title}>
-              <th>{idx}</th>
+              <th>{idx + 1}</th>
               <td>{article.title}</td>
               <td>{article.source.name}</td>
               <td>{new Date(article.publishedAt).toLocaleString(lng)}</td>
