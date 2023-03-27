@@ -10,9 +10,9 @@ const NewsGrid = (props: NewsGridProps) => {
   const { articles, lng } = props;
 
   return (
-    <div className="m-3 grid gap-3 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+    <div className="m-4 grid gap-3 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
       {articles.map((article) => (
-        <div key={article.publishedAt} className="card 2xl:card-side bg-base-100 shadow-xl">
+        <div key={article.title} className="card 2xl:card-side bg-base-100 shadow-xl">
           <figure>
             <img src={article.urlToImage} alt="thumbnail" />
           </figure>

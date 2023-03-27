@@ -13,7 +13,7 @@ const NewsList = (props: NewsListProps) => {
   const { t } = useTranslation();
 
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto m-4">
       <table className="table w-full max-lg:table-compact">
         <thead>
           <tr>

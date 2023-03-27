@@ -1,18 +1,28 @@
+import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Footer, Header, Sidebar } from './components';
 
 const App = () => {
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
   return (
     <>
-      <Header />
-      <div className="lg:flex">
-        <main className="flex-1 overflow-auto">
+      <Header setDrawerOpen={setDrawerOpen} />
+
+      <div className="drawer drawer-mobile">
+        <input
+          checked={drawerOpen}
+          onChange={() => setDrawerOpen((prev) => !prev)}
+          id="drawer-side"
+          type="checkbox"
+          className="drawer-toggle"
+        />
+        <main className="drawer-content" onClick={() => setDrawerOpen(false)}>
           <Outlet />
         </main>
-        <aside className="hidden lg:block flex-none">
-          <Sidebar />
-        </aside>
+        <Sidebar setDrawerOpen={setDrawerOpen} />
       </div>
+
       <Footer />
     </>
   );

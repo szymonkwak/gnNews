@@ -1,14 +1,18 @@
-import { useTranslation } from 'react-i18next';
+import { Dispatch, SetStateAction } from 'react';
 import CountriesList from './CountriesList';
 
-const Sidebar = () => {
-  const { t } = useTranslation();
+interface SidebarProps {
+  setDrawerOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+const Sidebar = (props: SidebarProps) => {
+  const { setDrawerOpen } = props;
 
   return (
-    <>
-      <p className="text-lg text-center my-2">{t('Wyświetl arykuły z:')}</p>
-      <CountriesList />
-    </>
+    <aside className="drawer-side">
+      <label htmlFor="drawer-side" className="drawer-overlay"></label>
+      <CountriesList onLiClick={() => setDrawerOpen(false)} />
+    </aside>
   );
 };
 

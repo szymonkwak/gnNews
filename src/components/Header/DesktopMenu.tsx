@@ -13,10 +13,10 @@ const DesktopMenu = (props: DesktopMenuProps) => {
 
   return (
     <label className={`swap swap-flip ${displayStyle === NewsDisplay.grid ? 'swap-active' : ''}`}>
-      <button onClick={() => changeDisplayStyle(NewsDisplay.grid)} className="swap-off btn btn-primary no-animation">
+      <button onClick={() => changeDisplayStyle(NewsDisplay.grid)} className="swap-off btn btn-secondary btn-outline no-animation">
         {t('Wyświetlanie: Lista')}
       </button>
-      <button onClick={() => changeDisplayStyle(NewsDisplay.list)} className="swap-on btn btn-primary no-animation">
+      <button onClick={() => changeDisplayStyle(NewsDisplay.list)} className="swap-on btn btn-secondary btn-outline no-animation">
         {t('Wyświetlanie: Kafelki')}
       </button>
     </label>
