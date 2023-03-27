@@ -14,7 +14,7 @@ function useFetch<Data>(url: string) {
     setLoading(true);
     (async () => {
       try {
-        const response = await fetch(url, { headers: { Authorization: import.meta.env.VITE_NEWS_API_KEY } });
+        const response = await fetch(url, { headers: { Authorization: process.env.VITE_NEWS_API_KEY! } });
         const data = await response.json();
         if (response.ok) setData(data);
       } catch (error) {

@@ -13,7 +13,7 @@ const Timer = () => {
     return () => clearInterval(timeInterval);
   }, [lng]);
 
-  return <div className={lng === Languages.PL ? 'w-[70px]': 'w-[90px]'}>{time}</div>;
+  return <div className={lng === Languages.PL ? 'w-[70px]': 'w-[95px]'}>{time}</div>;
 };
 
 export default Timer;
