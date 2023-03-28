@@ -26,6 +26,9 @@ Install dependencies
   npm install
 ```
 
+Add the following environment variables to your .env file
+`VITE_NEWS_API_KEY=841fd42cce954629a45d0257440c824d`
+
 Start the development server
 
 ```bash
