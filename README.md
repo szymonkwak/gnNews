@@ -4,7 +4,7 @@ News aggregator
 
 ## Demo
 
-https://gnnews.vercel.app/
+https://gnnews-sz.vercel.app
 
 ## Run Locally
 
@@ -31,3 +31,11 @@ Start the development server
 ```bash
   npm run dev
 ```
+
+Run tests
+
+```bash
+  npm run test
+```
+
+![Logo](https://raw.githubusercontent.com/szymonkwak/gnNews/master/src/assets/logo-full.png)
