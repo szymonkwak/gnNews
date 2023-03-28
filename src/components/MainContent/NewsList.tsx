@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Article } from '../../api/types';
 import { Languages } from '../../store/general/generalTypes';
@@ -5,10 +6,11 @@ import { Languages } from '../../store/general/generalTypes';
 interface NewsListProps {
   articles: Article[];
   lng: Languages;
+  setArticleInModal: Dispatch<SetStateAction<Article | null>>;
 }
 
 const NewsList = (props: NewsListProps) => {
-  const { articles, lng } = props;
+  const { articles, lng, setArticleInModal } = props;
 
   const { t } = useTranslation();
 
@@ -28,7 +30,7 @@ const NewsList = (props: NewsListProps) => {
             <tr key={article.title}>
               <th>{idx + 1}</th>
               <td>
-                <a href={article.url}>{article.title}</a>
+                <button onClick={() => setArticleInModal(article)}>{article.title}</button>
               </td>
               <td className="text-sm">
                 {article.url.split('//')[1]?.slice(0, article.url.split('//')[1].indexOf('/'))}

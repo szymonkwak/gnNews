@@ -11,12 +11,14 @@ import FetchBtn from './components/FetchBtn';
 import useSetDisplayedArticles from './hooks/useSetDisplayedArticles';
 import NewsGrid from './NewsGrid';
 import NewsList from './NewsList';
+import ArticleModal from './components/ArticleModal';
 
 const MainContent = () => {
   const displayStyle = useSelector((state) => state.general.newsDisplayStyle);
   const lng = useSelector((state) => state.general.language);
 
   const [news, setNews] = useState<Article[]>([]);
+  const [articleInModal, setArticleInModal] = useState<Article | null>(null);
 
   const { countryId } = useParams();
   const { fetchData, error, loading } = useFetch<ResponseData>();
@@ -44,12 +46,13 @@ const MainContent = () => {
     return (
       <>
         {displayStyle === NewsDisplay.list ? (
-          <NewsList articles={news} lng={lng} />
+          <NewsList articles={news} lng={lng} setArticleInModal={setArticleInModal} />
         ) : (
-          <NewsGrid articles={news} lng={lng} />
+          <NewsGrid articles={news} lng={lng} setArticleInModal={setArticleInModal} />
         )}
 
         <FetchBtn handleFetch={handleFetch} loading={loading} />
+        {articleInModal ? <ArticleModal article={articleInModal} setArticle={setArticleInModal} lng={lng} /> : null}
       </>
     );
 

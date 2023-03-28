@@ -5,7 +5,7 @@ interface LoaderProps {
 const Loader = (props: LoaderProps) => {
   const { className } = props;
   return (
-    <div className={`p-4 flex items-center justify-center ${className}`}>
+    <div className={`p-10 flex items-center justify-center ${className}`}>
       <div
         className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
         role="status"
