@@ -16,11 +16,12 @@ const clickSettingsButton = () => {
 
 describe('Header tests', () => {
   it('should display button to change articles display to grid', () => {
+    store.dispatch(setDisplayStyle(NewsDisplay.list));
     render(<Header setDrawerOpen={jest.fn} />, { store });
     clickSettingsButton();
 
     expect(
-      screen.getAllByRole('menuitem').find((el) => el.firstChild?.textContent?.includes('Wyświetlanie: Kafelki'))
+      screen.getAllByRole('menuitem').find((el) => el.firstChild?.textContent?.includes('Wyświetl kafelki'))
     ).toBeInTheDocument();
   });
 
@@ -30,7 +31,7 @@ describe('Header tests', () => {
     clickSettingsButton();
 
     expect(
-      screen.getAllByRole('menuitem').find((el) => el.firstChild?.textContent?.includes('Wyświetlanie: Lista'))
+      screen.getAllByRole('menuitem').find((el) => el.firstChild?.textContent?.includes('Wyświetl listę'))
     ).toBeInTheDocument();
   });
 });

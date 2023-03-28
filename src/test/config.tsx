@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable no-empty-function */
 import '@testing-library/jest-dom';
+import 'whatwg-fetch'
 import React, { PropsWithChildren } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { render as rtlRender } from '@testing-library/react';
