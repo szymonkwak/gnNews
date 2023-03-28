@@ -1,8 +1,10 @@
 {
   "Język": "Language",
-  
-  "Wyświetlanie: Kafelki": "Show: Grid",
-  "Wyświetlanie: Lista": "Show: List",
+
+  "Wyświetl kafelki": "Display grid",
+  "Wyświetl listę": "Display list",
+
+  "Wybierz kraj z menu, aby wyświetlić artykuły": "Pick a country from the menu to display articles",
 
   "Tytuł artykułu": "Article title",
   "Źródło": "Source",
@@ -11,6 +13,6 @@
   "Wyświetlanych artykułów: ": "Displayed articles: ",
 
   "Wróć": "Go back",
-  "Nic tu nie ma": "There's nothing here"
-
+  "Nic tu nie ma": "There's nothing here",
+  "Wystąpił błąd podczas pobierania danych": "Error parsing data"
 }

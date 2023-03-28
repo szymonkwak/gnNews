@@ -4,7 +4,6 @@ import '../../styles/react-menu.css';
 import { useDispatch, useSelector } from '../../hooks';
 import { setDisplayStyle } from '../../store/general/generalSlice';
 import { NewsDisplay } from '../../store/general/generalTypes';
-import LanguageDropdown from './components/LanguageDropdown';
 import Logo from './components/Logo';
 import Popup from './components/Popup';
 import DesktopMenu from './DesktopMenu';
@@ -26,27 +25,16 @@ const Header = (props: HeaderProps) => {
   };
 
   return (
-    <header className="navbar bg-neutral">
-      <div className="navbar-start">
+    <header className="flex p-2 justify-between items-center bg-neutral">
+      <div className="flex">
         <HamburgerIcon onClick={() => setDrawerOpen((prev) => !prev)} />
         <Link to="/">
           <Logo />
         </Link>
       </div>
 
-      <div className="navbar-center hidden lg:flex">
-        <DesktopMenu displayStyle={displayStyle} changeDisplayStyle={changeDisplayStyle} />
-      </div>
-
-      <div className="navbar-end">
-        <MobileMenu displayStyle={displayStyle} changeDisplayStyle={changeDisplayStyle} />
-        <div className="hidden lg:flex">
-          <label htmlFor="fun-modal" className="btn btn-secondary">
-            Popup
-          </label>
-          <LanguageDropdown />
-        </div>
-      </div>
+      <DesktopMenu displayStyle={displayStyle} changeDisplayStyle={changeDisplayStyle} />
+      <MobileMenu displayStyle={displayStyle} changeDisplayStyle={changeDisplayStyle} />
 
       <Popup />
     </header>

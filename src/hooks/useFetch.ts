@@ -17,6 +17,7 @@ function useFetch<Data>(url: string) {
         const response = await fetch(url, { headers: { Authorization: process.env.VITE_NEWS_API_KEY! } });
         const data = await response.json();
         if (response.ok) setData(data);
+        if (response.status >= 400 && response.status <= 499) setError(response.status);
       } catch (error) {
         setError(error);
       } finally {

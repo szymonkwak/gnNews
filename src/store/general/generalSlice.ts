@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { GeneralState, Languages, NewsDisplay } from './generalTypes';
 
 const initialState: GeneralState = {
-  newsDisplayStyle: NewsDisplay.list,
+  newsDisplayStyle: NewsDisplay.grid,
   language: Languages.PL,
   displayedArticles: 0,
 };

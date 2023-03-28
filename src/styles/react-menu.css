@@ -103,7 +103,7 @@
   display: flex;
   align-items: center;
   position: relative;
-  padding: 0.4rem 1rem;
+  padding: 0.375rem 1rem;
 }
 .szh-menu__item {
   cursor: pointer;

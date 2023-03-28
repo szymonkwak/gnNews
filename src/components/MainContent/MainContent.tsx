@@ -6,6 +6,7 @@ import { useDispatch, useFetch, useSelector } from '../../hooks';
 import { setDisplayedArticles } from '../../store/general/generalSlice';
 import { NewsDisplay } from '../../store/general/generalTypes';
 import ErrorPage from '../ErrorPage/ErrorPage';
+import FetchingError from '../ErrorPage/FetchingError';
 import Loader from '../Loader/Loader';
 import NewsGrid from './NewsGrid';
 import NewsList from './NewsList';
@@ -26,6 +27,8 @@ const MainContent = () => {
   if (loading) return <Loader />;
 
   if (countryId && !Object.keys(country).includes(countryId)) return <ErrorPage />;
+
+  if (error) return <FetchingError />;
 
   if (data && displayStyle === NewsDisplay.list) return <NewsList articles={data.articles} lng={lng} />;
   if (data && displayStyle === NewsDisplay.grid) return <NewsGrid articles={data.articles} lng={lng} />;

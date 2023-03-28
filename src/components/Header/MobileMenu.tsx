@@ -23,15 +23,13 @@ const MobileMenu = (props: MobileMenuProps) => {
       }
       offsetY={20}
     >
-      <MenuItem>
-        {displayStyle === NewsDisplay.grid ? (
-          <button onClick={() => changeDisplayStyle(NewsDisplay.list)}>{t('Wyświetlanie: Lista')}</button>
-        ) : (
-          <button onClick={() => changeDisplayStyle(NewsDisplay.grid)}>{t('Wyświetlanie: Kafelki')}</button>
-        )}
-      </MenuItem>
-      <MenuItem>
-        <label className="hover:cursor-pointer" htmlFor="fun-modal">
+      {displayStyle === NewsDisplay.grid ? (
+        <MenuItem onClick={() => changeDisplayStyle(NewsDisplay.list)}>{t('Wyświetl listę')}</MenuItem>
+      ) : (
+        <MenuItem onClick={() => changeDisplayStyle(NewsDisplay.grid)}>{t('Wyświetl kafelki')}</MenuItem>
+      )}
+      <MenuItem className='!p-0'>
+        <label className="w-full h-full px-4 py-1.5 hover:cursor-pointer" htmlFor="fun-modal">
           Popup
         </label>
       </MenuItem>

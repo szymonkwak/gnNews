@@ -1,8 +1,10 @@
 {
   "Język": "Język",
 
-  "Wyświetlanie: Kafelki": "Wyświetlanie: Kafelki",
-  "Wyświetlanie: Lista": "Wyświetlanie: Lista",
+  "Wyświetl kafelki": "Wyświetl kafelki",
+  "Wyświetl listę": "Wyświetl listę",
+
+  "Wybierz kraj z menu, aby wyświetlić artykuły": "Wybierz kraj z menu, aby wyświetlić artykuły",
 
   "Tytuł artykułu": "Tytuł artykułu",
   "Źródło": "Źródło",
@@ -11,5 +13,6 @@
   "Wyświetlanych artykułów: ": "Wyświetlanych artykułów: ",
 
   "Wróć": "Wróć",
-  "Nic tu nie ma": "Nic tu nie ma"
+  "Nic tu nie ma": "Nic tu nie ma",
+  "Wystąpił błąd podczas pobierania danych": "Wystąpił błąd podczas pobierania danych"
 }

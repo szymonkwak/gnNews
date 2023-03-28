@@ -9,7 +9,7 @@ const App = () => {
     <>
       <Header setDrawerOpen={setDrawerOpen} />
 
-      <div className="drawer drawer-mobile">
+      <div className="drawer drawer-mobile h-full flex-1">
         <input
           checked={drawerOpen}
           onChange={() => setDrawerOpen((prev) => !prev)}
