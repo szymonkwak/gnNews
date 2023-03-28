@@ -1,19 +1,19 @@
 interface Article {
-  author: string;
-  content: unknown;
-  description: unknown;
-  publishedAt: string;
-  source: { id: string; name: string };
+  id: number;
+  image: string;
+  language: string;
+  publish_date: string;
+  source_country: string;
+  text: string;
   title: string;
   url: string;
-  name: string;
-  urlToImage: string;
 }
 
 interface ResponseData {
-  articles: Article[];
-  status: string;
-  totalResults: number;
+  news: Article[];
+  available: number;
+  number: number;
+  offset: number;
 }
 
 export type { Article, ResponseData };

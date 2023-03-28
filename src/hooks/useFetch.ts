@@ -1,32 +1,31 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 /**
  * Hook for sending GET request
  * @param url url for request
- * @returns `data`, `error` and `loading` state
+ * @returns function for fetching data, `error` and `loading` state
  */
-function useFetch<Data>(url: string) {
-  const [data, setData] = useState<Data | null>(null);
+function useFetch<Data>() {
   const [error, setError] = useState<unknown>(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
+  const fetchData = async (url: string): Promise<Data> => {
     setLoading(true);
-    (async () => {
-      try {
-        const response = await fetch(url, { headers: { Authorization: process.env.VITE_NEWS_API_KEY! } });
-        const data = await response.json();
-        if (response.ok) setData(data);
-        if (response.status >= 400 && response.status <= 499) setError(response.status);
-      } catch (error) {
-        setError(error);
-      } finally {
-        setLoading(false);
-      }
-    })();
-  }, [url]);
+    let data;
+    try {
+      const response = await fetch(url, { headers: { 'x-api-key': process.env.VITE_NEWS_API_KEY! } });
+      data = await response.json();
+      if (response.status >= 400 && response.status <= 499) setError(response.status);
+      return response.ok ? data : null;
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+    return data;
+  };
 
-  return { data, error, loading };
+  return { fetchData, error, loading };
 }
 
 export default useFetch;

@@ -27,9 +27,13 @@ const NewsList = (props: NewsListProps) => {
           {articles.map((article, idx) => (
             <tr key={article.title}>
               <th>{idx + 1}</th>
-              <td>{article.title}</td>
-              <td>{article.source.name}</td>
-              <td>{new Date(article.publishedAt).toLocaleString(lng)}</td>
+              <td>
+                <a href={article.url}>{article.title}</a>
+              </td>
+              <td className="text-sm">
+                {article.url.split('//')[1]?.slice(0, article.url.split('//')[1].indexOf('/'))}
+              </td>
+              <td>{new Date(article.publish_date).toLocaleString(lng)}</td>
             </tr>
           ))}
         </tbody>

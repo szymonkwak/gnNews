@@ -9,11 +9,11 @@ interface CountriesListProps {
 const CountriesList = (props: CountriesListProps) => {
   const { onLiClick } = props;
 
-  const { t } = useTranslation('countries');
+  const { t } = useTranslation(['countries', 'translation']);
 
   return (
     <ul className="menu w-44 bg-base-100 lg:bg-base-200 text-base-content">
-      <p className="text-base p-4 bg-base-200">{t('Wyświetl arykuły z:')}</p>
+      <p className="text-base p-4">{t('Wyświetl arykuły z:', {ns: 'translation'})}</p>
 
       {Object.entries(country).map((country) => (
         <li key={country[0]}>

@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { country } from '../../api/country';
-import { ResponseData } from '../../api/types';
-import { useDispatch, useFetch, useSelector } from '../../hooks';
-import { setDisplayedArticles } from '../../store/general/generalSlice';
+import { Article, ResponseData } from '../../api/types';
+import { useFetch, useSelector } from '../../hooks';
 import { NewsDisplay } from '../../store/general/generalTypes';
 import ErrorPage from '../ErrorPage/ErrorPage';
 import FetchingError from '../ErrorPage/FetchingError';
 import Loader from '../Loader/Loader';
+import FetchBtn from './components/FetchBtn';
+import useSetDisplayedArticles from './hooks/useSetDisplayedArticles';
 import NewsGrid from './NewsGrid';
 import NewsList from './NewsList';
 
@@ -15,23 +16,42 @@ const MainContent = () => {
   const displayStyle = useSelector((state) => state.general.newsDisplayStyle);
   const lng = useSelector((state) => state.general.language);
 
-  const { countryId } = useParams();
-  const dispatch = useDispatch();
+  const [news, setNews] = useState<Article[]>([]);
 
-  const { data, error, loading } = useFetch<ResponseData>(`https://newsapi.org/v2/top-headlines?country=${countryId}`);
+  const { countryId } = useParams();
+  const { fetchData, error, loading } = useFetch<ResponseData>();
+  useSetDisplayedArticles(news.length);
+
+  const handleFetch = async () => {
+    const data = await fetchData(
+      `https://api.worldnewsapi.com/search-news?offset=${news.length}&language=${countryId}`
+    );
+    if (data) setNews((prev) => prev.concat(data.news));
+  };
 
   useEffect(() => {
-    if (data) dispatch(setDisplayedArticles(data.articles.length));
-  }, [data]);
+    handleFetch();
+    return () => {
+      setNews([]);
+    };
+  }, [countryId]);
 
-  if (loading) return <Loader />;
-
+  if (!news.length && loading) return <Loader />;
   if (countryId && !Object.keys(country).includes(countryId)) return <ErrorPage />;
-
   if (error) return <FetchingError />;
 
-  if (data && displayStyle === NewsDisplay.list) return <NewsList articles={data.articles} lng={lng} />;
-  if (data && displayStyle === NewsDisplay.grid) return <NewsGrid articles={data.articles} lng={lng} />;
+  if (news.length)
+    return (
+      <>
+        {displayStyle === NewsDisplay.list ? (
+          <NewsList articles={news} lng={lng} />
+        ) : (
+          <NewsGrid articles={news} lng={lng} />
+        )}
+
+        <FetchBtn handleFetch={handleFetch} loading={loading} />
+      </>
+    );
 
   return null;
 };

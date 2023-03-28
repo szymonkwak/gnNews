@@ -15,13 +15,15 @@ const NewsGrid = (props: NewsGridProps) => {
       {articles.map((article) => (
         <a key={article.title} href={article.url} className="card bg-base-100 shadow-xl">
           <figure>
-            <img src={article.urlToImage || articlePlaceholder} alt="thumbnail" />
+            <img src={article.image || articlePlaceholder} alt="thumbnail" />
           </figure>
           <div className="flex flex-col justify-between flex-1 gap-2 p-4">
             <h2 className="card-title">{article.title}</h2>
             <div className="card-actions flex gap-0 flex-col items-end">
-              <p className="text-sm"> {article.source.name}</p>
-              <p className="text-sm">{new Date(article.publishedAt).toLocaleString(lng)}</p>
+              <p className="text-sm">
+                {article.url.split('//')[1]?.slice(0, article.url.split('//')[1].indexOf('/'))}
+              </p>
+              <p className="text-sm">{new Date(article.publish_date).toLocaleString(lng)}</p>
             </div>
           </div>
         </a>
